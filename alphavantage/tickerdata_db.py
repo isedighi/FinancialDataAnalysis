@@ -1,7 +1,7 @@
 import requests
 import json
 import sqlite3
-from __apikey__ import key,months,ticker
+from __apikey__ import key,months,ticker,timeinterval
 
 conn = sqlite3.connect(ticker+'Data.sqlite')
 cur = conn.cursor()
@@ -22,11 +22,11 @@ for month in months:
         year = '2023'
     else:
         year = '2024'
-    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+ticker+'&interval=1min&month='+year+'-'+month+'&outputsize=full&datatype=json&apikey='+key
+    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+ticker+'&interval='+timeinterval+'&month='+year+'-'+month+'&outputsize=full&datatype=json&apikey='+key
     r = requests.get(url)
     data = r.text
     data = json.loads(data)
-    data = data['Time Series (1min)']
+    data = data['Time Series '+timeinterval]
     times = list(data)
 
     for time in times:
