@@ -162,5 +162,6 @@ cython_debug/
 #.idea/
 
 __apikey__.*
+apikey.txt
 
 
