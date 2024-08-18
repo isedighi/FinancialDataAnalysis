@@ -1,9 +1,9 @@
 import requests
 import json
 import sqlite3
-from __apikey__ import key
+from __apikey__ import key,months,ticker
 
-conn = sqlite3.connect('msftData.sqlite')
+conn = sqlite3.connect(ticker+'Data.sqlite')
 cur = conn.cursor()
 cur.executescript('''
 DROP TABLE IF EXISTS data;
@@ -14,7 +14,6 @@ CREATE TABLE "data" ( "date" TEXT, "time" TEXT, "open" INTEGER, "high" INTEGER, 
 ### adding a little bit of comment to test git repo
 
 
-months = [8,9,10,11,12,1,2,3,4,5,6,7]
 for month in months:
     month = str(month)
     if len(month)<2:
@@ -22,8 +21,8 @@ for month in months:
     if int(month) > 7:
         year = '2023'
     else:
-        year = '2024'                                                         #MSFT Ticker
-    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&month='+year+'-'+month+'&outputsize=full&datatype=json&apikey='+key
+        year = '2024'
+    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+ticker+'&interval=1min&month='+year+'-'+month+'&outputsize=full&datatype=json&apikey='+key
     r = requests.get(url)
     data = r.text
     data = json.loads(data)
