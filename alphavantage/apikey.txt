@@ -1,0 +1,9 @@
+
+
+K6ZPWT8ZRTEYYWFS
+
+
+that is the api key
+
+https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=GOES HERE
+https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=K6ZPWT8ZRTEYYWFS
