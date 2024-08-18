@@ -11,6 +11,9 @@ CREATE TABLE "data" ( "date" TEXT, "time" TEXT, "open" INTEGER, "high" INTEGER, 
 ''')
 
 
+### adding a little bit of comment to test git repo
+
+
 months = [8,9,10,11,12,1,2,3,4,5,6,7]
 for month in months:
     month = str(month)
