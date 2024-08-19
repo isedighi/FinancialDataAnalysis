@@ -3,6 +3,7 @@ import json
 import sqlite3
 from __apikey__ import key,months,ticker,timeinterval
 
+print(ticker+'Data.sqlite')
 conn = sqlite3.connect(ticker+'Data.sqlite')
 cur = conn.cursor()
 cur.executescript('''
@@ -26,7 +27,7 @@ for month in months:
     r = requests.get(url)
     data = r.text
     data = json.loads(data)
-    data = data['Time Series '+timeinterval]
+    data = data['Time Series ('+timeinterval+')']
     times = list(data)
 
     for time in times:
