@@ -12,6 +12,6 @@ for item in data:
     pchange.append((item[1]-item[0])/item[0])
 
 avg = sum(pchange)/len(pchange)
-print('Stop Loss',avg)
+print('Stop Loss:',str(avg * 100)[0:5]+'%')
 
 print('\n\ndone\n')
