@@ -1,4 +1,4 @@
-from __apikey__ import ticker
+from vars import ticker
 import sqlite3
 
 conn = sqlite3.connect(ticker+'Data.sqlite')
