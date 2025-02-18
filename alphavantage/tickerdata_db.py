@@ -12,9 +12,6 @@ CREATE TABLE "data" ( "date" TEXT, "time" TEXT, "open" INTEGER, "high" INTEGER, 
 ''')
 
 
-### adding a little bit of comment to test git repo
-
-
 for month in months:
     month = str(month)
     if len(month)<2:
